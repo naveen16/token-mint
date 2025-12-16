@@ -23,59 +23,6 @@ npm start
 npm run dev
 ```
 
-## API Endpoints
-
-### Health Check
-- **GET** `/health` - Check server status
-
-### Items API
-
-- **GET** `/api/items` - Get all items
-  - Response: `{ success: true, data: Item[], count: number }`
-
-- **GET** `/api/items/:id` - Get a specific item by ID
-  - Response: `{ success: true, data: Item }`
-  - Error (404): `{ success: false, error: "Item not found" }`
-
-- **POST** `/api/items` - Create a new item
-  - Body: `{ name: string, description?: string }`
-  - Response (201): `{ success: true, data: Item, message: string }`
-  - Error (400): `{ success: false, error: string }`
-
-## Example Requests
-
-### Create an item
-```bash
-curl -X POST http://localhost:3000/api/items \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Sample Item", "description": "This is a sample item"}'
-```
-
-### Get all items
-```bash
-curl http://localhost:3000/api/items
-```
-
-### Get item by ID
-```bash
-curl http://localhost:3000/api/items/1
-```
-
-## Project Structure
-
-```
-.
-├── src/
-│   ├── index.ts           # Main server entry point
-│   └── routes/
-│       └── items.ts       # Items API routes (GET, POST)
-├── dist/                  # Compiled JavaScript (generated)
-├── tsconfig.json          # TypeScript configuration
-├── nodemon.json           # Nodemon configuration
-├── package.json           # Project dependencies and scripts
-└── README.md              # Project documentation
-```
-
 ## Default Port
 
 The server runs on port 3000 by default. You can change it by setting the `PORT` environment variable.
